@@ -1,0 +1,73 @@
+{% load static %}
+{% url 'news' as news_url %}
+{% url 'menu' as menu_url %}
+{% url 'lunch_menu' as lunch_menu_url %}
+{% url 'broadcast' as broadcast_url %}
+{% url 'photos' as photos_url %}
+{% url 'vino' as vino_url %}
+{% url 'find' as find_url %}
+{% url 'vacancies' as vacancies_url %}
+<header>
+    <div class="cont"><a href="{% url 'home' %}" class="logo"><span>
+        <img src="{% static 'images/logo.png' %}" alt="ENZO. Стейки и бургеры">
+    </span></a>
+        <div class="l">
+            <div class="order-inf">Телефон для бронирования:<br>
+                <strong>+375 29 177-00-88</strong><br>Телефон для заказов навынос:<br><strong>+375 29
+                    108-11-77</strong></div>
+        </div>
+        <div class="r">
+            <div class="time-inf"> Пн. - Вс. 11:00 - 23:00<br>
+            </div>
+            <div class="address-inf">Минск, ул. Октябрьская, 23</div>
+        </div>
+        <div class="clear"></div>
+        {#        ????????????  #}
+        <a href="#" class="menu-open"></a>
+    </div>
+    {#        ????????????  #}
+    <nav class="menu-top"><a href="#" class="menu-close"></a>
+        <ul>
+            <li {% if request.path == news_url %}class="cur" {% endif %}>
+                <a href="{% url 'news' %}">
+                    <span>Новости</span>
+                </a>
+            </li>
+            <li {% if request.path == menu_url or request.path == lunch_menu_url %}class="cur" {% endif %}>
+                <a href="{% url 'menu' %}">
+                    <span>Меню</span>
+                </a>
+            </li>
+            <li {% if request.path == broadcast_url %}class="cur" {% endif %}>
+                <a href="{% url 'broadcast' %}">
+                    <span>Трансляции</span>
+                </a>
+            </li>
+            <li {% if request.path == photos_url %}class="cur" {% endif %}>
+                <a href="{% url 'photos' %}">
+                    <span>Фото</span>
+                </a>
+            </li>
+            <li {% if request.path == vino_url %}class="cur" {% endif %}>
+                <a href="{% url 'vino' %}">
+                    <span>О вине</span>
+                </a>
+            </li>
+            <li {% if request.path == find_url %}class="cur" {% endif %}>
+                <a href="{% url 'find' %}">
+                    <span>Как найти</span>
+                </a>
+            </li>
+            <li {% if request.path == vacancies_url %}class="cur" {% endif %}>
+                <a href="{% url 'vacancies' %}">
+                    <span>Вакансии</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="soc"><a href="https://instagram.com/cafe1.minsk/" class="item inst" target="_blank"></a><a
+                href="https://www.facebook.com/enzominsk/" class="item fb" target="_blank"></a><a
+                href="https://vk.com/enzo.minsk" class="item vk" target="_blank"></a></div>
+        <div class="clear"></div>
+    </nav>
+</header>

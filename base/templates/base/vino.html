@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'header.html' %}
+    <div class="page">
+        <h1>Вино</h1>
+        <section class="articles">
+
+            {% for vine in object_list %}
+            <article class="item">
+                <div class="pic">
+                    <img src="{{ vine.photo.url }}"
+                         alt="Осень. Смена винных декораций.">
+                </div>
+                <div class="info">
+                    <h2>{{ vine.title }}</h2>
+                    <div class="date">{{ vine.created }}</div>
+                    <div class="descr content-text"><p>{{ vine.body }}</p></div>
+                </div>
+                <div class="clear"></div>
+            </article>
+
+            {% endfor %}
+
+
+            <div class="paging">
+            {#        Назад#}
+             {% if page_obj.has_previous %}
+                 <a href="/vino/?{{ page_obj.previous_page_number }}" id="id_prev" class="prev">&nbsp;</a>
+                {% endif %}
+{#            Страницы#}
+            {% for page in page_obj.paginator.page_range %}
+                <a {% if page == page_obj.number %} class="current" {% endif %} href="/vino/?page={{ page }}">{{ page }}</a>
+            {% endfor %}
+{#            Вперед#}
+                 {% if page_obj.has_next %}
+                    <a href="/vino/?page={{ page_obj.next_page_number }}" id="id_next" class="next">&nbsp;</a>
+                {% endif %}
+
+            </div>
+        </section>
+        <div class="clear"></div>
+    </div>
+    {% include 'footer.html' %}
+{% endblock content %}

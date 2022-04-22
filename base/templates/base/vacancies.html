@@ -1,0 +1,118 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+
+    <div class="page">
+
+
+        <div class="vacancies-list">
+            <div class="item">
+                <a href="javascript:;" class="name" style="color: black">Официант</a>
+
+                <div class="descr" style="display: none;"><p><span style="text-decoration: underline;">Мы предлагаем:&nbsp;</span>
+                </p>
+                    <p>- Работа в сплоченной молодой команде</p>
+                    <p>- Сменный график работы</p>
+                    <p>- Мотивацию и ежедневное обучение</p>
+                    <p>- Погружение в нашу философию</p>
+                    <p>- Личностный и карьерный рост</p>
+                    <p>- Оформление по ТК</p>
+                    <p>- Фирменная форма</p>
+                    <p>- Питание</p>
+                    <p>- Достойную оплату труда</p>
+                    <p></p>
+                    <p></p>
+                    <p><span style="text-decoration: underline;">Мы хотим видеть:&nbsp;</span></p>
+                    <p>- Открытых и коммуникабельных</p>
+                    <p>- Стрессоустойчивых и уверенных в себе людей</p>
+                    <p>- Ценим энтузиазм и инициативу, преданность делу</p>
+                    <p>- Интерес к сфере гостеприимства</p>
+                    <p>- Наличие действующей сан. книжки.</p></div>
+            </div>
+            <div class="item">
+                <a href="javascript:;" class="name" style="color: black">Повар горячего цеха</a>
+                <div class="descr"><p><span style="text-decoration: underline;">Мы предлагаем: </span></p>
+                    <p>- Сменный график работы,</p>
+                    <p>- Оформление по ТК,</p>
+                    <p>- Фирменная форма,</p>
+                    <p>- Питание,</p>
+                    <p>- Профессиональное развитие,</p>
+                    <p>- Своевременная выплата заработной платы,</p>
+                    <p>- Работа в дружном молодом коллективе.</p>
+                    <p></p>
+                    <p><span style="text-decoration: underline;">Мы хотим видеть: </span></p>
+                    <p>- Опыт работы в HoReCa,</p>
+                    <p>- Опыт работы с мясом класса "премиум",</p>
+                    <p>- Приготовление блюд согласно технологическим картам и стандартам, принятым в заведении,</p>
+                    <p>- Целеустремленность и ответственность,</p>
+                    <p>- Наличие действующей сан. книжки.</p></div>
+            </div>
+            <div class="item">
+                <a href="javascript:;" class="name" style="color: black">Повар холодного цеха</a>
+                <div class="descr"><p><span style="text-decoration: underline;">Мы предлагаем:&nbsp;</span></p>
+                    <p>- Сменный график работы,</p>
+                    <p>- Оформление по ТК,</p>
+                    <p>- Фирменная форма,</p>
+                    <p>- Питание,</p>
+                    <p>- Профессиональное развитие,</p>
+                    <p>- Своевременная выплата заработной платы,</p>
+                    <p>- Работа в дружном молодом коллективе.</p>
+                    <p></p>
+                    <p><span style="text-decoration: underline;">Мы хотим видеть:&nbsp;</span></p>
+                    <p>- Опыт работы в HoReCa,</p>
+                    <p>- Приготовление блюд согласно технологическим картам и стандартам, принятым в заведении,</p>
+                    <p>- Целеустремленность и ответственность,</p>
+                    <p>- Наличие действующей сан. книжки.</p></div>
+            </div>
+        </div>
+
+
+        <div class="vacancies-form">
+
+            <form action="" method="post" id="form-resume" enctype="multipart/form-data">{% csrf_token %}
+
+                <div class="row">
+                    {{ form.type_vacancy }}
+                </div>
+
+
+                <div class="row">
+                    {{ form.name_lastname }}
+                </div>
+                <div class="row">
+                    {{ form.phone_number }}
+                </div>
+                <div class="row">
+                    {{ form.email }}
+                </div>
+                <div class="row">
+                    {{ form.date_birthday }}
+                </div>
+                <div class="row">
+                    {{ form.education }}
+                </div>
+                <div class="row">
+                    {{ form.work_experience }}
+                </div>
+                <div class="row">
+                    {{ form.recommendations }}
+                </div>
+                <div class="row file">
+                    {{ form.resume }}
+                    <a class="btn-file">Прикрепить фото/резюме</a>
+                </div>
+                <div class="submit">
+                    <input type="submit">
+                </div>
+            </form>
+
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    {% include 'footer.html' %}
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% load static %}
+{%  block content %}
+    {% include 'header.html' %}
+<div class="page">
+    <div class="main-img"><img src="{% static 'images/main_photo.jpg' %}" alt=""></div>
+    <ul class="advant">
+        <li class="item1"><i></i>Обеденное<br> меню</li>
+        <li class="item2"><i></i>Охраняемая<br> парковка</li>
+        <li class="item3"><i></i>В кафе<br> не&nbsp;курят</li>
+        <li class="item4"><i></i>Wi-Fi</li>
+        <li class="item5"><i></i>Принимаем<br> карточки</li>
+    </ul>
+    <div class="clear"></div>
+    <div class="clear"></div>
+</div>
+    {% include 'footer.html' %}
+{%  endblock content %}

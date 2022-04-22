@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% include 'header.html' %}
+    <div class="page">
+        <div class="photos">
+            {% for photo in object_list %}
+            <img src="{{ photo.photo.url }}" alt="">
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+    </div>
+    {% include 'footer.html' %}
+{% endblock content %}

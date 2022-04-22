@@ -1,0 +1,304 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+    {##}
+    {#    {% for menu in object_list %}#}
+    {##}
+    {#        {{ menu.name }}#}
+    {#    {% endfor %}#}
+    <div class="page">
+
+
+        <aside class="menu-left">
+            <ul>
+                <li {% if request.path == '/menu/main-menu/' %} class="cur" {% endif %}>
+                    <a href="/menu/main-menu/">
+                        <span>Основное меню</span>
+                    </a>
+                </li>
+                <li {% if request.path == '/menu/lunch-menu-of-the-week/' %} class="cur" {% endif %}>
+                    <a href="/menu/lunch-menu-of-the-week/">
+                        <span>Обеденное меню недели</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <section class="menu-list">
+
+            {% if request.path == '/menu/main-menu/' %}
+                <table>
+                    <tbody>
+
+
+                    <tr>
+                        <th colspan="3">Завтраки (подаются весь день)</th>
+                    </tr>
+
+                    {% for breakfast in breakfasts %}
+
+
+                        <tr>
+                            <td>{{ breakfast.name }}</td>
+                            <td class="weight">{{ breakfast.grams }}</td>
+                            <td class="price">{{ breakfast.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Закуски</th>
+                    </tr>
+
+                    {% for snack in snacks %}
+
+                        <tr>
+                            <td>{{ snack.name }}</td>
+                            <td class="weight">{{ snack.grams }}</td>
+                            <td class="price">{{ snack.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Салаты</th>
+                    </tr>
+                    {% for salad in salads %}
+
+                        <tr>
+                            <td>{{ salad.name }}</td>
+                            <td class="weight">{{ salad.grams }}</td>
+                            <td class="price">{{ salad.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <th colspan="3">Бургеры</th>
+                    </tr>
+                    {% for burger in burgers %}
+
+                        <tr>
+                            <td>{{ burger.name }}</td>
+                            <td class="weight">{{ burger.grams }}</td>
+                            <td class="price">{{ burger.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <th colspan="3">Стейки</th>
+                    </tr>
+                    {% for steak in steaks %}
+
+                        <tr>
+                            <td>{{ steak.name }}</td>
+                            <td class="weight">{{ steak.grams }}</td>
+                            <td class="price">{{ steak.price }}</td>
+                        </tr>
+
+                    {% endfor %}
+                    <tr>
+                        <th colspan="3">Рыба</th>
+                    </tr>
+                    {% for fis in fish %}
+                        <tr>
+                            <td>{{ fis.name }}</td>
+                            <td class="weight">{{ fis.grams }}</td>
+                            <td class="price">{{ fis.price }} </td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <th colspan="3">Супы</th>
+                    </tr>
+                    {% for soup in soups %}
+
+                        <tr>
+                            <td>{{ soup.name }}</td>
+                            <td class="weight">{{ soup.grams }}</td>
+                            <td class="price">{{ soup.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Гарниры</th>
+                    </tr>
+                    {% for garnishe in garnishes %}
+
+                        <tr>
+                            <td>{{ garnishe.name }}</td>
+                            <td class="weight">{{ garnishe.grams }}</td>
+                            <td class="price">{{ garnishe.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Соусы</th>
+                    </tr>
+                    {% for sauce in sauces %}
+
+                        <tr>
+                            <td>{{ sauce.name }}</td>
+                            <td class="weight">{{ sauce.grams }}</td>
+                            <td class="price">{{ sauce.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Десерты</th>
+                    </tr>
+                    {% for dessert in desserts %}
+
+                        <tr>
+                            <td>{{ dessert.name }}</td>
+                            <td class="weight">{{ dessert.grams }}</td>
+                            <td class="price">{{ dessert.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Фреши</th>
+                    </tr>
+                    {% for fresh in freshies %}
+
+                        <tr>
+                            <td>{{ fresh.name }}</td>
+                            <td class="weight">{{ fresh.grams }}</td>
+                            <td class="price">{{ fresh.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <th colspan="3">Напитки</th>
+                    </tr>
+                    {% for drink in drinks %}
+
+                        <tr>
+                            <td>{{ drink.name }}</td>
+                            <td class="weight">{{ drink.grams }}</td>
+                            <td class="price">{{ drink.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Кофе (Honduras San Marcos, Kitchen Coffee Roasters)</th>
+                    </tr>
+                    {% for coff in coffee %}
+
+                        <tr>
+                            <td>{{ coff.name }}</td>
+                            <td class="weight">{{ coff.grams }}/10</td>
+                            <td class="price">{{ coff.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+            {% elif request.path == '/menu/lunch-menu-of-the-week/' %}
+
+
+                <table>
+                    <tbody>
+
+                    <tr>
+                        <th colspan="3">Бургер дня - 11.50</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">Суп дня - 6.00</th>
+                    </tr>
+
+
+                    <tr>
+                        <th colspan="3">Закуски и салаты</th>
+                    </tr>
+                    {% for appetizers_salad in appetizers_salads %}
+
+                        <tr>
+                            <td>{{ appetizers_salad.name }}</td>
+                            <td class="weight">{{ appetizers_salad.gramm }}</td>
+                            <td class="price">{{ appetizers_salad.price }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Горячие блюда</th>
+                    </tr>
+
+                    {% for hot_meal in hot_meals %}
+
+                        <tr>
+                            <td>{{ hot_meal.name }}</td>
+                            <td class="weight">{{ hot_meal.grams }}</td>
+                            <td class="price">{{ hot_meal.price }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Хлеб</th>
+                    </tr>
+
+                    {% for bre in bread %}
+                        <tr>
+                            <td>{{ bre.name }}</td>
+                            <td class="weight">{{ bre.grams }}</td>
+                            <td class="price">{{ bre.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Десерт</th>
+                    </tr>
+                    {% for dess in dessert %}
+
+                        <tr>
+                            <td>{{ dess.name }}</td>
+                            <td class="weight">{{ dess.grams }}</td>
+                            <td class="price">{{ dess.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <th colspan="3">Напитки</th>
+                    </tr>
+                    {% for drink in drinks %}
+
+                        <tr>
+                            <td>{{ drink.name }}</td>
+                            <td class="weight">{{ drink.grams }}</td>
+                            <td class="price">{{ drink.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+
+
+
+            {% endif %}
+        </section>
+        <div class="clear"></div>
+
+        <div class="clear"></div>
+    </div>
+
+
+
+
+    {% include 'footer.html' %}
+
+{% endblock content %}
